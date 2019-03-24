@@ -1,0 +1,222 @@
+<!doctype html public "-//IETF//DTD HTML 4.0//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SKYNET-AI</title>
+<style type="text/css"><!--
+A:link    { color: #ff0000 }
+A:visited { color: #9966cc }
+A:active { color: green}
+-->
+body {
+background:#000;
+color:#ff0;
+}
+
+#tgtsite {
+width:100%;
+height:900px;
+max-height:90vh;
+background:black;
+}
+#button {
+
+    font-family: 'Trebuchet MS', 'Lucida Grande',
+	  Verdana, Lucida, Geneva, Helvetica, 
+	  Arial, sans-serif;
+	color: #333;
+    margin-bottom: 1pt;
+	}
+		#button ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border: none;
+		}
+		
+	#button li {
+		border-bottom: 1px solid #90bade;
+		margin: 0;
+		}
+		#button li a {
+		display: block;
+		padding: 5px 5px 5px 0;
+		border-left: 10px solid #1958b7;
+		border-right: 10px solid #508fc4;
+		background-color: #2175bc;
+		color: #fff;
+		text-decoration: none;
+		width: 100%;
+		}
+
+	html>body #button li a {
+		width: auto;
+		}
+
+	#button li a:hover {
+		border-left: 10px solid #1c64d1;
+		border-right: 10px solid #5ba3e0;
+		background-color: #2586d7;
+		color: #fff;
+		}
+
+
+
+.user
+{
+font-family: "Times New Roman", Times, serif;
+position: relative;
+width: 100%-5px;
+padding: 2px;
+color:black;
+margin-top:16px;
+margin-bottom:1px;
+background: #99f;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+border: #2C497F solid 2px;
+}
+
+.user:after
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 16px 16px;
+border-color: #99F transparent;
+display: block;
+width: 0;
+z-index: 1;
+top: -15px;
+left: 18px;
+}
+
+.user:before
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 0 18px 18px;
+border-color: #2C497F transparent;
+display: block;
+width: 0;
+z-index: 0;
+top: -17px;
+left: 16px;
+}
+.bot
+{
+font-family:"Courier New";
+position: relative;
+width: 100%-5px;
+max-height:85vh;
+overflow-y: auto;
+padding: 2px;
+background: #211F2D;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+border: #d01 solid 2px;
+}
+
+.xbot:after
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 16px 16px 0;
+border-color: #211F2D transparent;
+display: block;
+width: 0;
+z-index: 1;
+bottom: 27px;
+left: 18px;
+}
+
+.xbot:before
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 18px 18px 0;
+border-color: #d01 transparent;
+display: block;
+width: 0;
+z-index: 0;
+bottom: 25px;
+left: 16px;
+}
+#tgt{position: absolute; visibility: hidden; right:1px; bottom:2px;  max-width:60%; min-width:375px; width: 100%; max-height: 800px;height: 100%; overflow:none; border-style: solid none none dotted; border-color: yellow yellow yellow red; z-index:-10;}
+
+/* "page content" on small screens */
+@media only screen and (max-width: 600px) {
+#face {width:100%;padding:0px}
+#botin {width:80%;padding:0;z-index:-2}
+#tgt{height: 50%;bottom:50%;width:100%+100px;right:0;z-index:100;padding:0px;overflow:none}
+#tgtsite {
+right:100%+5;
+width:100%+100px;
+max-height:40vh;
+padding:0px;
+background:black;
+overflow-y:auto;
+overflow-x:hidden;
+}
+
+}
+</style>
+<script src="bf6.js" type="text/javascript"></script>
+<base=window.location>
+<script>
+var browser=navigator.appName;
+var b_version=navigator.appVersion;
+var version=parseFloat(b_version);
+</script>
+</head>
+<body onload="document.getElementById('botin').focus();bot_prompt('Log-in Name: ')">
+<div id="botentry" style="position: absolute; bottom:3px; left:1px;">
+
+<div id="output" style="width:100%;max-width:400px">
+
+<div class="bot">Skynet-AI&trade; terminal - Version: .006<br>
+Enter user name.<p/></div>
+</div><br>
+
+<form  id="skynet" name="skynet" TARGET="remoteframe" method="POST" onSubmit="saySomething(botin.value);return false;">
+<div>
+<input autocomplete="off" spellcheck="true" id="botin" name="botin" maxlength=255 size=60 type="text" value=""><input value="Enter" name="B1" type="submit">
+</div>
+</form>
+</div>
+
+
+<div id="face" style="position: absolute; left:0px; top:2px; z-index: -100; border-style: solid; border-width: 2px;">
+
+<img id="skynet_face" name="skynet_face" alt="SkyNet-AI" src="skynet_off.jpg" align="left" onclick="toggleDiv('tgt')" style=" max-width:400px;max-height:100%; width: 100%; height: auto;">
+
+<div id="button" style="position: absolute; bottom:0; left:0">
+  <ul>
+    <li><a href="#" onclick="popwin('http://www.skynet-AI.com/')">Home</a></li>
+    <li><a href="#" onclick="popwin('http://www.twitter.com/_SkynetAI')">News</a></li>
+    <li><a href="#" onclick="poplog()">Log</a></li>
+  </ul>
+</div>
+</div>
+<div id="tgt" name="tgt">
+<br>
+</div>
+
+
+<form id="botlog" TARGET="remoteframe" action="bot.php" method="post" style="position: absolute; display:none">
+Name: <input type="text" name="name" value="netsurfer"><input type="text" name="ai" value="Skynet-AI">
+<input type="text" id="session" name="session"><br>
+Volley: <input type="text" name="volley"><br>
+<input type="submit">
+</form>
+
+
+<div id="think" class="debug"><iframe id="remoteframe" name="remoteframe" style="width: 0pt; height: 0pt; border:none;"></iframe></div>
+</body>
+</html>
